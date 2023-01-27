@@ -20,8 +20,8 @@ cp .env.example .env
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
-DB_DATABASE=<your-project-name>
-DB_USERNAME={{username}}
+DB_DATABASE=your-project-name
+DB_USERNAME=username
 DB_PASSWORD=password
 
 ```
