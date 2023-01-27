@@ -38,10 +38,10 @@ php artisan key:generate
 php artisan migrate
 ```
 
-6. Build dev dependencies
+6. Install dev dependencies
 
 ```
-npm run dev
+npm install
 
 ```
 
