@@ -16,24 +16,7 @@ class NoteController extends Controller
      */
     public function index()
     {
-        //Get the logged in user's id
-        /* $userId = Auth::user()->id; */
-        //Using id() helper method from Auth facade
-/*         $userId = Auth::id();
-
-        //Using eloquent to get all the notes from the user chained with get method
-        $notes = Note::where('user_id', $userId)->get(); */
-        //use latest() to get latest inserted notes, use updated_at to get latest updated note instead of created so that it does order by latest updated notes
-        /* $notes = Note::where('user_id', Auth::id())->latest('updated_at')->get(); */
-        //Count of items per page can  be passed inside paginate() method , which is used for pagination
-        //$notes = Note::where('user_id', Auth::id())->latest('updated_at')->paginate(5);
-/*         $notes->each(function($note){
-            dump($note->title);
-
-        }); */
-        //dd($notes);
-
-        //$notes = Auth::user()->notes()->latest('updated_at')->paginate(5);
+        
         $notes = Note::whereBelongsTo(Auth::user())->latest('updated_at')->paginate(5);
         return view('notes.index')->with('notes', $notes);
 
@@ -66,14 +49,6 @@ class NoteController extends Controller
                 'text' => 'required'
             ]
         );
-
-/*         $note = new Note([
-            'user_id' => Auth::id(),
-            'title' => $request->title,
-            'text' => $request->text
-        ]);
-
-        $note->save(); */
 
         Auth::user()->notes()->create([
             'uuid' => Str::uuid(),
