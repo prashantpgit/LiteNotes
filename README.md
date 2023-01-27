@@ -37,3 +37,16 @@ php artisan key:generate
 ```
 php artisan migrate
 ```
+
+6. Build dev dependencies
+
+```
+npm run dev
+
+```
+
+7. Build assets
+
+```
+npm run build
+```
